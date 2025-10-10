@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Celebration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            color: #fff;
+        }
+        
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            overflow: hidden;
+        }
+        
+        /* Existing equation styling */
+        .equation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Decorative elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-duration: 20s;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: 15%;
+            right: 10%;
+            animation-duration: 25s;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            right: 20%;
+            animation-duration: 18s;
+            animation-delay: 1s;
+        }
+        
+        .floating-element:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            bottom: 10%;
+            left: 15%;
+            animation-duration: 22s;
+            animation-delay: 3s;
+        }
+        
+        /* Festival lights */
+        .light {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        
+        /* Confetti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0.7;
+            animation: fall linear forwards;
+        }
+        
+        /* Content styling */
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(5deg);
+            }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <!-- Your equation -->
+        <div class="equation">
+            Y = (Y₁ + Y₂ + ⋯ + Yₙ) / (Y₁ + Y₂ + ⋯ + Yₙ)
+        </div>
+        
+        <!-- Floating elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
+        <!-- Lights and confetti will be added by JavaScript -->
+    </div>
+    
+    <div class="content">
+        <h1>Welcome to the Festival!</h1>
+        <p>Join us for an unforgettable celebration of music, art, and culture. Experience amazing performances, delicious food, and create memories that will last a lifetime.</p>
+        <a href="#" class="btn">Get Tickets Now</a>
+    </div>
+
+    <script>
+        // Create festival lights
+        function createLights() {
+            const container = document.querySelector('.background-container');
+            const colors = ['#ff9966', '#ff5e62', '#6a11cb', '#2575fc', '#ffcc00'];
+            
+            for (let i = 0; i < 50; i++) {
+                const light = document.createElement('div');
+                light.classList.add('light');
+                light.style.left = Math.random() * 100 + 'vw';
+                light.style.top = Math.random() * 100 + 'vh';
+                light.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                light.style.animationDelay = Math.random() * 2 + 's';
+                light.style.width = (5 + Math.random() * 10) + 'px';
+                light.style.height = (10 + Math.random() * 20) + 'px';
+                container.appendChild(light);
+            }
+        }
+        
+        // Create falling confetti
+        function createConfetti() {
+            const container = document.querySelector('.background-container');
+            const colors = ['#ff9966', '#ff5e62', '#6a11cb', '#2575fc', '#ffcc00', '#00ff99', '#ff3366'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = -20 + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (5 + Math.random() * 10) + 's';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                
+                // Random shapes
+                if (Math.random() > 0.5) {
+                    confetti.style.borderRadius = '50%';
+                } else {
+                    confetti.style.width = '8px';
+                    confetti.style.height = '8px';
+                }
+                
+                container.appendChild(confetti);
+            }
+        }
+        
+        // Initialize effects
+        document.addEventListener('DOMContentLoaded', function() {
+            createLights();
+            createConfetti();
+        });
+    </script>
+</body>
+</html>

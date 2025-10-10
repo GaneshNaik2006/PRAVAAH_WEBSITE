@@ -1,0 +1,65 @@
+@font-face {
+        font-family: 'Segoe UI';
+        src: local('Segoe UI'),
+             url('/fonts/segoeui.woff2') format('woff2'),
+             url('/fonts/segoeui.woff') format('woff');
+       
+    }
+
+*{
+    margin:0%;
+    padding:0%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+nav{
+    height:9vh;
+    background-color: rgba(15, 12, 41, 0.8);
+    display:flex;
+    justify-content: space-between;
+    width:100vw;
+  
+    
+}
+.logo{
+    height:6vh;
+    width:8vh;
+
+}
+.logo img{
+    height:10vh;
+    width:12vh;
+}
+ul{
+    display: flex;
+    
+    width:65vw;
+    align-items: center;
+    justify-content: space-between;
+}
+li{
+    list-style: none;
+    color:white;
+    margin-right:2rem ;
+    font-weight: 450;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}
+select{
+    background-color:rgba(15, 12, 41, 0.8) ;
+    border:none;
+    color:white;
+    padding: 5px;
+    font-weight: 500;
+    background-color: none;
+}
+.drop{
+    display: none;
+    
+}
+.drop:hover{
+
+}

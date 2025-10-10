@@ -1,0 +1,181 @@
+.highlights {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: 'Retropix', sans-serif;
+  background-image: ;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.horizon {
+  position: absolute;
+left: -25%;
+  bottom: 0%;
+  width: 150%;
+  max-height: 150%;
+  opacity: 50%;
+  z-index: 1;
+  object-fit: contain;
+}
+
+.constellation {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 200px;
+  z-index: 2;
+}
+
+.nebula {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  object-fit: contain;
+  height: 10vw;
+  opacity: 70%;
+  z-index: 1;
+}
+
+.galaxy {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  opacity: 80%;
+  z-index: 1;
+  height: 4vw;
+  width: 4vw;
+  object-fit: contain;
+  transform: rotate(40deg);
+}
+
+.star {
+  position: absolute;
+  width: 50px;
+  z-index: 3;
+}
+
+.star1 { top: 25%; left: 30%; }
+.star2 { top: 50%; left: 10%; }
+.star3 { top: 70%; left: 80%; }
+.star_animation {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1); 
+    box-shadow: 0 0 4px white, 0 0 8px white, 0 0 12px white;
+  }
+  50% { 
+    opacity: 0.3; 
+    transform: scale(1.5); 
+    box-shadow: 0 0 1px white, 0 0 2px white, 0 0 3px white;
+  }
+}
+.highlight2k25{
+
+   
+   text-align: center;
+    font-size: 3vw;
+    font-weight: bolder;
+}
+.starry_background{
+    position: absolute;
+    z-index: 1;
+    opacity: 50%;
+}
+.carousel {
+  width: 100vw;
+  height: 200px;
+  perspective: 1500px;
+  position: absolute;
+  margin: auto;
+ left: -22Vw;
+ top: 8vw;
+
+}
+
+.item {
+  position: absolute;
+  width: 80vw;
+  height: 50vw;
+  background: #3498db;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  transition: transform 0.5s, opacity 0.5s;
+  opacity: 0;
+}
+.fest-progress {
+  text-align: center;
+  padding: 40px 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+.fest-progress h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #0077b6;
+}
+
+/* --- Date-Based Progress Bar Styles --- */
+.progress-container {
+  width: 90%;
+  max-width: 600px; /* Prevents the bar from being too wide on desktops */
+  margin: 25px auto; /* Centering the bar */
+  background-color: #e0e0e0;
+  border-radius: 30px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.progress-bar {
+  width: 0%; /* Bar starts empty */
+  height: 35px; /* Default height for larger screens */
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 30px; /* Creates the pill shape */
+  
+  /* Text styles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px; /* Default font size */
+  
+  /* This creates the smooth animation */
+  transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1), 
+              height 0.3s ease, 
+              font-size 0.3s ease; /* Also animate size changes */
+}
+
+
+/* --- Responsive Adjustments --- */
+/* This block applies ONLY when the screen width is 600px or less */
+@media (max-width: 600px) {
+  .progress-bar {
+    height: 30px; /* Make the bar slightly thinner */
+    font-size: 12px; /* Make the font smaller to prevent overflow */
+    border-radius: 30px; /* Keep the pill shape */
+  }
+}

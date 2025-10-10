@@ -1,0 +1,226 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic setup */
+html, body {
+    width: 100%;
+    min-height: 100%;
+    background-color: #0b0f1a;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Header */
+.workshop_header {
+    margin-top: 4rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+/* Grid wrapper */
+.grid_center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+/* Grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    
+    width: 70%;
+}
+
+/* Each box (card) */
+.box {
+    position: relative;
+    background-color: #0b0f1a;
+    border: 1px solid white;
+    border-radius: 1rem;
+    width: 100%;
+    aspect-ratio: 3 / 4; /* 🔥 maintains perfect poster ratio */
+    overflow: hidden;
+    box-shadow: 0px 0px 12px rgba(255,255,255,0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 20px white;
+}
+
+/* Arrow icon */
+.touchshow {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 5;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    transform: rotate(45deg);
+}
+.touchshow.is-rotated {
+    transform: rotate(-135deg);
+}
+
+/* Image section */
+.imgs {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.6s ease;
+}
+.imgs img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 🔥 shows full poster */
+    background-color: #0b0f1a;
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+.imgs.is-blurred img {
+    filter: blur(5px) brightness(0.6);
+    transform: scale(1.05);
+}
+
+/* Content text (hidden until clicked/hovered) */
+.content {
+    position: relative;
+    z-index: 3;
+    color: white;
+    text-align: center;
+    padding: 0.4rem 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+}
+.content.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Workshop name text */
+.workshop_text {
+    position: absolute;
+    bottom: 2.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    background-color: rgba(0,0,0,0.6);
+    padding: 0.4rem 0.8rem;
+    z-index: 4;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+/* Register button */
+.reg {
+    position: absolute;
+    bottom: 0.8rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+    border-radius: 0.6rem;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    background-color: yellow;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+.reg.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+/* Hover fallback */
+.box:hover .imgs {
+    filter: blur(3px);
+    transform: scale(1.05);
+}
+.box:hover .content,
+.box:hover .reg {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* 🌐 Responsive design */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 92%;
+    }
+    .workshop_text {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        width: 90%;
+        gap: 0.8rem;
+    }
+    .box {
+        aspect-ratio: 3 / 4.2; /* slightly taller on phones */
+    }
+    .workshop_text {
+        font-size: 0.9rem;
+        bottom: 2.8rem;
+    }
+    .reg {
+        bottom: 1rem;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    header {
+        font-size: 1.3rem;
+    }
+    .box {
+        aspect-ratio: 3 / 4.3;
+    }
+    .workshop_text {
+        font-size: 0.85rem;
+        bottom: 2.4rem;
+    }
+    .reg {
+        bottom: 0.8rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+    }
+}

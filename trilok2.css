@@ -1,0 +1,240 @@
+body {
+      margin: 0;
+      font-family: 'Retropix', sans-serif;
+      background: #0b0f1a;
+      color: white;
+    }
+
+.head {
+      text-align: center;
+      padding: 2rem;
+      background: #121520;
+      border-bottom: 2px solid #222;
+    }
+
+.head h1 {
+      font-size: 2.5rem;
+      margin-top: 2rem;
+    }
+
+.head p {
+      color: #bbb;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+.container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+
+.card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+.card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+.card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 2px solid #444;
+    }
+
+.card h2 {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+.card p {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin: 0.2rem 0;
+    }
+
+.contact {
+      margin-top: 1rem;
+    }
+
+.contact a {
+      display: inline-block;
+      margin: 0.2rem;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #555;
+      border-radius: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: background 0.2s;
+    }
+
+.contact a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+.queries {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 5vw;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+.queries h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #fff;
+    }
+
+.queries form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+
+.queries label {
+    font-size: 0.9rem;
+    color: #bbb;
+    }
+
+.queries input,
+.queries textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #121520;
+    color: white;
+    font-family: inherit;
+    }
+
+.queries input:focus,
+.queries textarea:focus {
+    border-color: #ffd166;
+    outline: none;
+    }
+
+.queries button {
+    padding: 0.8rem;
+    background: #ffd166;
+    border: none;
+    border-radius: 8px;
+    color: #0b0f1a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    }
+
+.queries button:hover {
+    background: #ffb347;
+    }
+
+/* --- Simple Timeline Styles --- */
+
+.simple-timeline-wrapper {
+  max-width: 800px; /* Adjust max width as needed */
+  margin: 50px auto; /* Centers the timeline horizontally */
+  padding: 0 20px;
+  position: relative;
+}
+
+.simple-timeline {
+  display: flex;
+  flex-direction: column; /* Stacks items vertically */
+  position: relative;
+}
+
+/* The vertical line in the center */
+.simple-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%; /* Centers the line */
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 2px; /* Thickness of the line */
+  background-color: #555; /* Dark grey line */
+}
+
+/* Each individual event */
+.simple-timeline-event {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px; /* Space between events */
+  position: relative;
+}
+
+.simple-timeline-event:nth-child(even) {
+  /* Aligns content to the left for even-numbered events */
+  flex-direction: row-reverse;
+}
+
+/* The dot for each event */
+.simple-timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #2575fc; /* Blue dot */
+  border: 2px solid #fff; /* White border */
+  z-index: 1; /* Ensures dot is above the line */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Content box for each event */
+.simple-timeline-content {
+  background: rgba(255, 255, 255, 0.08); /* Slightly lighter background for the box */
+  padding: 15px 20px;
+  border-radius: 8px;
+  flex: 1; /* Allows content to take up available space */
+  max-width: calc(50% - 40px); /* Adjust content width (50% minus space for dot/gap) */
+  margin-left: 40px; /* Space from the line for odd events */
+  text-align: left;
+}
+
+.simple-timeline-event:nth-child(even) .simple-timeline-content {
+  margin-left: 0;
+  margin-right: 40px; /* Space from the line for even events */
+  text-align: right;
+}
+
+.simple-timeline-content h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #fff; /* White text */
+  font-size: 1.2em;
+}
+
+.simple-timeline-content p {
+  margin: 0;
+  color: #bbb; /* Light grey text */
+  font-size: 0.9em;
+}
+/* Active state for the dot */
+.simple-timeline-event.is-active .simple-timeline-dot {
+  background-color: #ffb347; /* Highlight color for active dot */
+  border-color: #2575fc; /* Stronger border */
+  box-shadow: 0 0 0 4px rgba(37, 117, 252, 0.3); /* Subtle glow */
+}
+
+/* Active state for the content box */
+.simple-timeline-event.is-active .simple-timeline-content {
+  background: rgba(255, 255, 255, 0.15); /* Slightly brighter background for active */
+}
