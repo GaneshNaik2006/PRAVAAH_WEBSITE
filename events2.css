@@ -1,0 +1,109 @@
+.header{
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.826);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+}
+.event-info p{
+    color: white;
+}
+.logo-cont{
+    font-size: 30px;
+    font-weight: 500;
+    margin-left: 20px;
+    background: linear-gradient(to right, var(--highlight1), var(--accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar{
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hamburger{
+    display: none;
+}
+
+@media (max-width: 810px){
+    .hamburger{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .navbar-links{
+        display: none;
+    }
+}
+
+.dropdown-menu {
+    display: none;
+    position: fixed;
+    z-index: 600;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.826);
+    top: 60px;
+    right: 20px;
+    border-radius: 5px;
+}
+
+.dropdown-links a{
+    margin: 15px 0px;
+}
+
+.dropdown-links:hover a{
+    color: var(--highlight1);
+    cursor: pointer;
+}
+
+.navbar-links a, .hamburger, .dropdown-links a, .navbar-links button{
+    text-decoration: none;
+    color: white;
+    padding:15px;
+    transition: all 0.15s ease;
+}
+
+.navbar-links:hover a, .hamburger:hover{
+    background-color: rgb(21, 21, 21);
+    border-bottom: 2px solid var(--highlight1);
+}
+
+.navbar-links:active a, .hamburger:active{
+    color: var(--highlight1);
+}
+
+#navbar-2{
+    width: fit-content;
+    height: fit-content;
+
+    position: absolute;
+    right: 30px;
+    top: 174px;
+}
+
+#navbar-2 a{
+    background-color: rgba(37, 37, 37, 0.628);
+    border-radius: 5px 5px 0px 0px;
+}
+
+#navbar-2 a.active{
+  border-bottom: 2px solid var(--highlight1);
+  background-color: rgba(0, 0, 0, 0.826);
+  color: var(--highlight1);
+}
+
+#navbar-2 button{
+    background: none;
+    border: none;
+}

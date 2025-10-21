@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #000;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 50px 5%;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-auto-rows: 180px;
+    grid-auto-flow: dense;
+    gap: 10px;
+  }
+
+  .item {
+    background: #1e90ff;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .item:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 20px rgba(30,144,255,0.6);
+  }
+
+  /* Size Variations */
+  .wide { grid-column: span 2; }
+  .tall { grid-row: span 2; }
+  .big { grid-column: span 2; grid-row: span 2; }
+  .medium { grid-column: span 1; grid-row: span 1.5; }
+  .small { grid-column: span 1; grid-row: span 0.8; }
+
+  /* --- TABLET VIEW --- */
+  @media (max-width: 900px) {
+    .gallery {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-auto-rows: 160px;
+    }
+    .big { grid-column: span 2; grid-row: span 1.5; }
+    .wide { grid-column: span 2; grid-row: span 1; }
+    .tall { grid-column: span 1; grid-row: span 2; }
+    .medium { grid-column: span 1; grid-row: span 1.2; }
+    .small { grid-column: span 1; grid-row: span 1; }
+  }
+
+
+  /* --- MOBILE VIEW (New Aesthetic) --- */
+  @media (max-width: 600px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 150px;
+      gap: 8px;
+    }
+
+    .item {
+      grid-column: span 1;
+      grid-row: span 1;
+      border-radius: 12px;
+    }
+
+    /* Dynamic layout pattern */
+    .gallery div:nth-child(3n+1) {
+      grid-row: span 1.4;
+    }
+
+    .gallery div:nth-child(4n+2) {
+      grid-row: span 1.8;
+    }
+
+    .gallery div:nth-child(5n) {
+      grid-row: span 1.2;
+    }
+
+    .gallery div:nth-child(6n) {
+      grid-column: span 2;
+      grid-row: span 1.3;
+    }
+  }
+
+  /* --- TINY SCREENS --- */
+  @media (max-width: 400px) {
+    .gallery {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 140px;
+    }
+  }

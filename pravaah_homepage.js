@@ -47,4 +47,5 @@ const scene = document.querySelector('.scene');
 
             rotateCarousel();
 
-                    
+
+            
